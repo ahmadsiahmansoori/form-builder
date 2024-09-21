@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
 export class AutocompleteComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input({required: true}) input!: FormControl
 
-  @
+
 
 
   public selectItem(item: any) {
@@ -28,6 +28,9 @@ export class AutocompleteComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+
+
+
 
   }
 

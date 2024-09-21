@@ -1,4 +1,5 @@
 import { Validation } from "./Validations"
+import { Event } from "./Event"
 
 export interface TextareaInput {
   defaultValue?: any
@@ -70,8 +71,9 @@ export type TypeInput = {
 export interface Input<V extends keyof Validation = keyof Validation,  T extends keyof TypeInput = keyof TypeInput> {
   name: T,
   options: TypeInput[T]
-  validations: {[K in V]: Validation[K]}
-  events: any[]
+  validations?: {[K in V]: Validation[K]}
+  events?: Event
+  col: {[k: string]: string}
 }
 
 
