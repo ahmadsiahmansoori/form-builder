@@ -1,0 +1,14 @@
+version: 3
+
+services:
+  app:
+    image: .
+
+  database:
+    image: mysql:latest
+
+
+
+
+  redis:
+    image:jalksdjf

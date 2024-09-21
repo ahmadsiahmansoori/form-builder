@@ -1,0 +1,66 @@
+{
+  "action": {
+    "url": "https://localhost/test",
+    "method": "post"
+  },
+  "noValidation": false,
+  "fields": [
+    {
+      "label": "province",
+      "name": "province",
+      "input": {
+        "name": "select",
+        "config": {
+          "bindLabel": "name",
+          "bindItem": "id",
+          "defaultValue": null,
+          "items": [
+            {"name": "test 1", "id": 1},
+            {"name": "test 2", "id": 2},
+            {"name": "test 3", "id": 3}
+          ]
+        }
+      },
+      "col": {
+        "sm": "col-12",
+        "md": "col-6",
+        "lg": "col-4"
+      },
+      "rules": {
+        "required": {},
+        "minLength": {"value": 3},
+        "maxLength": {"value": 16}
+      },
+      "events": {}
+    },
+    {
+      "name": "name",
+      "label": "name",
+      "col": {"md": "col-12"},
+      "rules": {"required": {}},
+      "input": {
+        "name": "text",
+        "config": {"value": ""}
+      }
+    },
+    {
+      "label": "submit",
+      "name": "submit",
+      "input": {
+        "name": "submit",
+        "config": {
+          "label": "submit"
+        }
+      },
+      "col": {
+        "sm": "col-12",
+        "md": "col-6",
+        "lg": "col-4"
+      },
+      "rules": {
+        "required": {},
+        "email": {}
+      }
+    }
+  ]
+}

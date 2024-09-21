@@ -1,0 +1,75 @@
+<form class="container-sm" [formGroup]="formGenerator.formGroup">
+
+  <div class="row">
+    <ng-container *ngFor="let field of data.fields">
+      <ng-container [ngSwitch]="field.input.name">
+
+        <div mat-menu-item [ngClass]="getColClasses(field)"  *ngSwitchCase="InputType.select">
+          <mat-form-field class="w-100">
+            <mat-label>
+              {{field.label}}
+            </mat-label>
+            <mat-select formControlName="{{field.name}}" (ngModelChange)="onChange(field, $event)" >
+              <mat-option  *ngFor="let item of selectConfig(field.input.config).items" [value]="item[selectConfig(field.input.config).bindItem]">
+                {{ item[selectConfig(field.input.config).bindLabel] }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+
+
+        <div mat-menu-item [ngClass]="getColClasses(field)"  *ngSwitchCase="InputType.textarea">
+          <mat-form-field class="w-100">
+            <mat-label>
+              {{field.label}}
+            </mat-label>
+            <textarea formControlName="{{field.name}}" matInput></textarea>
+          </mat-form-field>
+        </div>
+
+        <div mat-menu-item [ngClass]="getColClasses(field)"  *ngSwitchCase="InputType.text">
+          <mat-form-field class="w-100">
+            <mat-label>
+              {{field.label}}
+            </mat-label>
+            <input formControlName="{{field.name}}" matInput>
+          </mat-form-field>
+        </div>
+
+        <div  mat-menu-item [ngClass]="getColClasses(field)"  *ngSwitchCase="InputType.authocomplete">
+          <input type="text"
+            class="form-control-theme form-control-p theme-input w-98-percent"
+            formControlName="{{field.name}}"
+            [matAutocomplete]="auto">
+          <label class="theme-input-label">
+            {{field.label}}
+          </label>
+          <mat-autocomplete   #auto="matAutocomplete">
+            <mat-option  class="rtl text-right h-auto " *ngFor="let item of autocomplete(field.input.config).items"  [value]="item[autocomplete(field.input.config).bindValue]"
+                        (onSelectionChange)="onChange(field, $event.source.value)">
+              <div class="d-flex" >
+                <span class="text-right" style="overflow: hidden;text-overflow: ellipsis;">
+                  {{ item[autocomplete(field.input.config).bindLabel] }}
+                </span>
+              </div>
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+        <div  mat-menu-item [ngClass]="getColClasses(field)"  *ngSwitchCase="InputType.button">
+          <button mat-flat-button color="primary" class="w-100">{{field.label}}</button>
+        </div>
+
+        <div  mat-menu-item [ngClass]="getColClasses(field)"  *ngSwitchCase="InputType.submit">
+          <button mat-flat-button color="primary" class="w-100">{{field.label}}</button>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+
+
+
+</form>
