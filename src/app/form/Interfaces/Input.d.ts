@@ -69,11 +69,12 @@ export type TypeInput = {
 }
 
 export interface Input<V extends keyof Validation = keyof Validation,  T extends keyof TypeInput = keyof TypeInput> {
-  name: T,
+  name: string
+  type: T
   options: TypeInput[T]
   validations?: {[K in V]: Validation[K]}
   events?: Event
-  col: {[k: string]: string}
+  col?: {[k: string]: string}
 }
 
 

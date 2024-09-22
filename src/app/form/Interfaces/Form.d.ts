@@ -12,12 +12,12 @@ export interface ActionForm {
   header?: { [k: string]: string }
   body?: { [k: string]: string }
   loading?: boolean
-  noValidation?: boolean
 }
 
 
 export interface Form {
   action: ActionForm
   fields: Input[]
-  event?: any
+  noValidation?: boolean
+  event?: any // create interface global event
 }

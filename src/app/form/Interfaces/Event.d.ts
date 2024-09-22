@@ -4,16 +4,25 @@ export interface EventHandler<E = Event> {
   (event: E): void
 }
 
+export interface ResponseActionForm {
+  status: number
+  data?: string
+  alert?: string
+  errors?: string
+}
+
 export interface HttpCallEvent {
   action: ActionForm
-  response: string
+  response: ResponseActionForm
 }
 
 export interface SetValueEvent {
 
 }
 
-export interface setItemEvent {}
+export interface setItemEvent {
+
+}
 
 interface Event {
   onClick?: EventHandler<MouseEvent>
